@@ -118,7 +118,7 @@ metadata:
     spring.cloud.kubernetes.configmap.apps: "demo"
 data:
   application.yml: |-
-    greeting: "Hello from kubernetes"
+    app.greeting: "1"
 ---
 apiVersion: v1
 kind: List

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 public class DemoApplication {
-
-	@Value(value = "${greeting}")
-	private String greeting;
+	@Autowired
+	private DemoProperties demoProperties;
 
 	@Value(value = "${spring.application.name}")
 	private String appName;
@@ -23,7 +23,7 @@ public class DemoApplication {
 
 	@GetMapping
 	public String getGreeting() {
-		return greeting + " " + appName;
+		return demoProperties.getGreeting() + " " + appName;
 	}
 
 }
